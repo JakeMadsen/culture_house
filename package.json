@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "kulturhuset",
+  "version": "1.0.0",
+  "description": "kulturhuset",
+  "main": "server.js",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "ip": "^1.1.5",
+    "moment": "^2.21.0",
+    "mysql2": "^1.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  },
+  "author": "Jake Martin Jacob Madsen",
+  "license": "MIT"
+}

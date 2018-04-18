@@ -1,0 +1,31 @@
+* {
+
+    font-family: Verdana, Geneva, sans-serif;
+
+}
+body {
+
+    background-color: rgb(227, 227, 227)
+
+}
+/* Header css - header.ejs */
+#header_title h1{
+    text-align: center;
+}
+
+#mainArticleContainer {
+
+    margin-top: 30px;
+}
+ .pushthirty {
+     margin-top:30px;
+ }
+ .pushthirtylower {
+     margin-bottom: 30px;
+ }
+
+ .containerColour {
+     background-color:rgba(207, 207, 207, 0.47);
+     width:auto;
+ }
+ 
