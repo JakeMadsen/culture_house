@@ -1,0 +1,67 @@
+<!-- Include head.ejs -->
+<% include ../.././partials/standard/head %>
+
+<body>
+    <!-- Header Navbar Start -->
+        <!-- Include header.ejs -->
+        <% include ../.././partials/standard/header %>
+    <!-- Header Navbar End -->
+
+    <!-- Content Area Start -->
+
+    <div id="mainArticleContainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Events
+                            <% include ../.././partials/events/event_categories %>
+                        </div>
+
+                        <div class="card-header">
+                            <a href="http://localhost:3100/cpanel/events/create/new">Opret</a>
+                            <a href="http://localhost:3100/cpanel/events/">Rediger</a>    
+                        </div>
+
+
+                        <div class="card-block">
+                            <% event_data.forEach(function(element){ %>
+                                <div id="event_<%= element.event_id%>" class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img class="img-fluid" alt="<%= element.event_name %>" src="/static/style/img/event_images/<%= element.type_name %>/<%= element.event_imagePath %>">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h2><%= element.type_name%></h2>
+                                            <h4><%= element.event_name%></h4>
+                                            <p><%= element.event_text %></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="/cpanel/events/edit/<%= element.event_id %>">Rediger    </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+
+                        <div class="card-footer footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    <!-- Content Area End -->
+
+    <!-- Footer Start-->
+        <!-- Include footer.ejs -->
+        <% include ../.././partials/standard/footer %>
+    <!-- Footer End-->
+</body>
+
+<!--include script.ejs-->
+<% include ../.././partials/standard/scripts %>
+</html>
+

@@ -17,6 +17,11 @@
                         <div class="card-header">
                             Events
                             
+                            <a href="http://localhost:3100/events/">Alle</a>
+                            <% type_data.forEach((category) => { %>
+                                <a href="http://localhost:3100/events/<%= category.type_name %>"><%= category.type_name %></a>
+                            <% }); %>
+                            
                         </div>
 
                         <div class="card-block">

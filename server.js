@@ -25,8 +25,10 @@ server.use(express.static(path.join(__dirname + 'public')));
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
-/* Requires public WEB routes. */
+/* Requires public and private WEB routes. */
 require('./routes/route_index_public')(server);
+require('./routes/route_index_private')(server);
+
 
 
 /* Executes listening function for WEB server. */

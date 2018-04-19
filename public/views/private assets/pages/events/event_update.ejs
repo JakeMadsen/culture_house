@@ -1,0 +1,109 @@
+<!-- Include head.ejs -->
+<% include ../.././partials/standard/head %>
+
+<body>
+    <!-- Header Navbar Start -->
+        <!-- Include header.ejs -->
+        <% include ../.././partials/standard/header %>
+    <!-- Header Navbar End -->
+
+    <!-- Content Area Start -->
+
+    <div id="mainArticleContainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Events
+                            <% include ../.././partials/events/event_categories %>
+                        </div>
+
+                        <div class="card-header">
+                            <a href="http://localhost:3100/cpanel/events/create/new">Opret</a>
+                            <a href="http://localhost:3100/cpanel/events/">Rediger</a>    
+                        </div>
+
+                        <div class="card-block">
+                                <div class="container">
+                                <form action="/cpanel/events/edit/<%= event_data[0].event_id %>" method="POST">
+
+                                    <input class="form-control" type="text" value="<%= event_data[0].event_name %>" name="event_name">
+
+                            
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Event Text:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="text" value="<%= event_data[0].event_text %>" name="event_text">
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Start dato:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="datetime-local" value="<%= event_data[0].event_dateStart %>" name="event_dateStart">
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Slut Dato:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="datetime-local" value="<%= event_data[0].event_dateEnd %>" name="event_dateEnd">
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Kategori:</label>
+                                        <div class="col-9">
+                                            <select class="form-control" name="fk_type_type">
+                                                <% type_data.forEach((category) => { %>
+                                                    <option vale="<%= category.type_id %>"><%= category.type_name %></option>
+                                                <% }); %>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Billede:</label>
+
+                                        <div class="col-9">
+                                            <input class="form-control" type="file" name="event_imagePath">
+                                            <img class="img-fluid" alt="<%= event_data[0].event_name %>" src="/static/style/img/event_images/<%= event_data[0].type_name %>/<%= event_data[0].event_imagePath %>">
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" value="Gem">
+                                </form>
+                            </div>
+                        </div>
+                        
+
+                        <div class="card-footer footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    <!-- Content Area End -->
+
+    <!-- Footer Start-->
+        <!-- Include footer.ejs -->
+        <% include ../.././partials/standard/footer %>
+    <!-- Footer End-->
+</body>
+
+<!--include script.ejs-->
+<% include ../.././partials/standard/scripts %>
+</html>
+

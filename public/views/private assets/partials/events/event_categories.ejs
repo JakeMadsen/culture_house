@@ -1,0 +1,4 @@
+<a href="http://localhost:3100/cpanel/events/">Alle</a>
+<% type_data.forEach((category) => { %>
+    <a href="http://localhost:3100/cpanel/events/<%= category.type_name %>"><%= category.type_name %></a>
+<% }); %>

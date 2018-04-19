@@ -1,0 +1,69 @@
+<!-- Include head.ejs -->
+<% include ../.././partials/standard/head %>
+
+<body>
+    <!-- Header Navbar Start -->
+        <!-- Include header.ejs -->
+        <% include ../.././partials/standard/header %>
+    <!-- Header Navbar End -->
+
+    <!-- Content Area Start -->
+
+    <div id="mainArticleContainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Events
+                            <% include ../.././partials/events/event_categories %>
+                        </div>
+
+                        <div class="card-header">
+                            <a href="http://localhost:3100/cpanel/events/create/new">Opret</a>
+                            <a href="http://localhost:3100/cpanel/events/">Rediger</a>    
+                        </div>
+
+                        <div class="card-block">
+                            <div class="container">
+
+                                <form action="POST">
+                                    <div class="form-group row">
+                                        <label for="check_in_name" class="col-3 col-form-label">Fulde Navn:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="text" id="check_in_name">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Telefon Nr:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="text" id="check_in_phone">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card-footer footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    <!-- Content Area End -->
+
+    <!-- Footer Start-->
+        <!-- Include footer.ejs -->
+        <% include ../.././partials/standard/footer %>
+    <!-- Footer End-->
+</body>
+
+<!--include script.ejs-->
+<% include ../.././partials/standard/scripts %>
+</html>
+
