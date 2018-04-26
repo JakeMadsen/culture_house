@@ -26,10 +26,14 @@
 
                         <div class="card-block">
                                 <div class="container">
-                                <form action="/cpanel/events/edit/<%= event_data[0].event_id %>" method="POST">
+                                <form action="/cpanel/events/edit/<%= event_data[0].event_id %>" method="POST" encType="multipart/form-data">
 
-                                    <input class="form-control" type="text" value="<%= event_data[0].event_name %>" name="event_name">
 
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Event Navn:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="text" value="<%= event_data[0].event_name %>" name="event_name">                                        </div>
+                                    </div>
                             
                                     <div class="dropdown-divider"></div>
                             
@@ -59,16 +63,25 @@
                                     </div>
 
                                     <div class="dropdown-divider"></div>
-                            
+
                                     <div class="form-group row">
                                         <label for="check_in_phone" class="col-3 col-form-label">Kategori:</label>
                                         <div class="col-9">
-                                            <select class="form-control" name="fk_type_type">
+                                            <select class="form-control" name="fk_event_type">
                                                 <% type_data.forEach((category) => { %>
-                                                    <option vale="<%= category.type_id %>"><%= category.type_name %></option>
+                                                    
+                                                    <option value="<%= category.type_id %>"
+                                                        <% if (category.type_id == event_data[0].type_id ) { %>
+                                                            <%= selected="selected" %>
+                                                        <% }; %> >
+
+
+                                                    <%= category.type_name %></option>
                                                 <% }); %>
                                         </div>
                                     </div>
+
+                                   
 
                                     <div class="dropdown-divider"></div>
                             

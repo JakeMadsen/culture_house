@@ -23,7 +23,6 @@ module.exports = function (server) {
         try {
             let event_data = await get_all_events(category_name);
             let type_data = await get_all_types();
-            console.log(event_data)
                 
             res.render('public assets/pages/events', {
                 event_data  : event_data,
@@ -51,8 +50,6 @@ function get_all_events(category_name) {
     if(category_name != null)
         sql_get_all_events += `WHERE type_name = '${category_name}'`
     
-    console.log(sql_get_all_events)
-
     return new Promise(function(resolve, reject){
         db_connection.query(sql_get_all_events, function (error, event_data) {
             if (error) 

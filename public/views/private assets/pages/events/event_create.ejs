@@ -25,28 +25,70 @@
                         </div>
 
                         <div class="card-block">
-                            <div class="container">
-
-                                <form action="POST">
+                                <div class="container">
+                                <form action="/cpanel/events/create/new" method="POST" encType="multipart/form-data">
                                     <div class="form-group row">
-                                        <label for="check_in_name" class="col-3 col-form-label">Fulde Navn:</label>
+                                        <label for="check_in_phone" class="col-3 col-form-label">Event Navn:</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" id="check_in_name">
+                                            <input class="form-control" type="text" name="event_name">
                                         </div>
                                     </div>
                             
                                     <div class="dropdown-divider"></div>
                             
                                     <div class="form-group row">
-                                        <label for="check_in_phone" class="col-3 col-form-label">Telefon Nr:</label>
+                                        <label for="check_in_phone" class="col-3 col-form-label">Event Text:</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" id="check_in_phone">
+                                            <input class="form-control" type="text" name="event_text">
                                         </div>
                                     </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Start dato:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="datetime-local" name="event_dateStart">
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Slut Dato:</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="datetime-local" name="event_dateEnd">
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Kategori:</label>
+                                        <div class="col-9">
+                                            <select class="form-control" name="fk_event_type">
+                                                    <% type_data.forEach((category) => { %>
+                                                        <option value="<%= category.type_id %>"><%= category.type_name %></option>
+                                                    <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <div class="form-group row">
+                                        <label for="check_in_phone" class="col-3 col-form-label">Billede:</label>
+
+                                        <div class="col-9">
+                                            <input class="form-control" type="file" name="event_imagePath">
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" value="Gem">
                                 </form>
                             </div>
                         </div>
-
+                        
                         <div class="card-footer footer">
                         </div>
                     </div>
